@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Region extends Migration
+class StockMoveType extends Migration
 {
     public function up()
     {
@@ -22,11 +22,11 @@ class Region extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('region');
+        $this->forge->createTable('stock_move_type');
     }
 
     public function down()
     {
-        $this->forge->dropTable('region');
+        $this->forge->dropTable('stock_move_type');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class StockMove extends Migration
+class Rating extends Migration
 {
     public function up()
     {
@@ -15,33 +15,36 @@ class StockMove extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'move' => [
-                'type' => 'VARCHAR',
+            'value' => [
+                'type' => 'FLOAT',
                 'null' => true,
             ],
-            'stock' => [
+            'customer_id' => [
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
             ],
-            'type' => [
+            'meal_id' => [
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
             ],
-            'entity_id' => [
+            'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
             ],
+            'updated_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ]
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('type', 'stock_move_type', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('stock_move');
+        $this->forge->createTable('meal_rating');
     }
 
     public function down()
     {
-        $this->forge->dropTable('stock_move');
+        $this->forge->dropTable('meal_rating');
     }
 }
