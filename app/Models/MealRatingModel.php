@@ -12,7 +12,7 @@ class MealRatingModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id', 'customer_id', 'meal_id', 'value'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -43,4 +43,31 @@ class MealRatingModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getAllMealRatings()
+    {
+        return $this->findAll();
+    }
+
+    public function getAllRatingsByMealName($meal_name)
+    {
+        $builder = $this->db->table('meal_rating mr');
+        $builder->select('m.name, mr.value');
+        $builder->join('meal m', 'm.id = mr.meal_id');
+        $builder->where('m.name', $meal_name);
+
+        return $builder->get()->getResultArray();
+    }
+
+    public function getAllRatingsByCustomerNames($customer_first, $customer_last)
+    {
+        $builder = $this->db->table('meal_rating mr');
+        $builder->select('u.first_name, u.last_name, m.name, mr.value, mr.created_at, mr.updated_at');
+        $builder->join('user u', 'u.id = mr.customer_id');
+        $builder->join('meals m', 'm.id = mr.meal_id');
+        $builder->where('u.first_name', $customer_first);
+        $builder->where('u.last_name', $customer_last);
+
+        return $builder->get()->getResultArray();
+    }
 }
