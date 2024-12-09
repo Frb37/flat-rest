@@ -17,6 +17,7 @@ class StockMove extends Migration
             ],
             'move' => [
                 'type' => 'VARCHAR',
+                'constraint' => 100,
                 'null' => true,
             ],
             'stock' => [
@@ -30,8 +31,14 @@ class StockMove extends Migration
                 'unsigned' => true,
             ],
             'entity_id' => [
-                'type' => 'DATETIME',
-                'null' => true,
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+            ],
+            'entity_type' => [
+                'type' => 'ENUM',
+                'constraint' => ['provider', 'ingredient'],
+                'default' => 'ingredient',
             ],
         ]);
 

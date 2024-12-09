@@ -77,7 +77,7 @@ abstract class BaseController extends Controller
      *
      * @var array
      */
-    protected $requiredPermissions = ['collaborateur', 'utilisateur', 'administrateur'];
+    protected $requiredPermissions = ['collaborateur', 'utilisateur', 'administrateur', 'employé'];
 
     /**
      * Titre de la page.
