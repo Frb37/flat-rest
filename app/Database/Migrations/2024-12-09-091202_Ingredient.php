@@ -17,7 +17,7 @@ class Ingredient extends Migration
             ],
             'name' => [
                 'type'              => 'VARCHAR',
-                'constraint'        => '255',
+                'constraint'        => 255,
             ],
             'quantity' => [
                 'type'              => 'INT',
@@ -26,10 +26,12 @@ class Ingredient extends Migration
             'category_id' => [
                 'type'              => 'INT',
                 'constraint'        => 11,
+                'unsigned'          => true,
             ],
             'provider_id' => [
                 'type'              => 'INT',
                 'constraint'        => 11,
+                'unsigned'          => true,
             ]
         ]);
 
