@@ -32,6 +32,7 @@ class Comment extends Migration
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
+                'default' => null,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -50,6 +51,7 @@ class Comment extends Migration
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('user_id', 'user', 'id');
         $this->forge->addForeignKey('order_id', 'order', 'id');
+        $this->forge->addForeignKey('parent_id', 'comment', 'id', 'CASCADE', 'SET NULL');
         $this->forge->createTable('comment');
     }
 
