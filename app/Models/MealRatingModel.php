@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class RatingModel extends Model
+class MealRatingModel extends Model
 {
-    protected $table            = 'ratings';
+    protected $table            = 'meal_rating';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
