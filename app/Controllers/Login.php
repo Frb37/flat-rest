@@ -27,10 +27,12 @@ class Login extends BaseController
                 return view('/login/login');
             }
             $this->session->set('user', $user);
-            return $this->redirect('/');
+            $redirectUrl = $this->session->get('redirect_url') ?? '/';
+            $this->session->remove('redirect_url');
+            return $this->redirect($redirectUrl);
         } else {
             // Gérer l'échec de l'authentification
-            return view('/login/login');
+            return view('/login/login', ['error' => 'Identifiants incorrects']);
         }
     }
 
