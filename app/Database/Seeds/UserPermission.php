@@ -4,7 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class Role extends Seeder
+class UserPermission extends Seeder
 {
     public function run()
     {
@@ -14,6 +14,6 @@ class Role extends Seeder
             ['name' => 'employé'],
         ];
 
-        $this->db->table('role')->insertBatch($data);
+        $this->db->table('user_permission')->insertBatch($data);
     }
 }

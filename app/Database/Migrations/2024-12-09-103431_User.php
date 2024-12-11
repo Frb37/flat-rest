@@ -76,7 +76,7 @@ class User extends Migration
 
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('delivery_city_id', 'city', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('role_id', 'role', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('role_id', 'user_permission', 'id', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('billing_city_id', 'city', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('user');
     }
