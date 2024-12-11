@@ -35,7 +35,7 @@ class User extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'mail' => [
+            'email' => [
                 'type' => 'VARCHAR',
                 'constraint' => '100',
             ],
@@ -46,6 +46,7 @@ class User extends Migration
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
+                'null' => true,
             ],
             'billing_address' => [
                 'type' => 'TEXT',
@@ -54,6 +55,7 @@ class User extends Migration
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
+                'null' => true,
             ],
             'role_id' => [
                 'type' => 'INT',
