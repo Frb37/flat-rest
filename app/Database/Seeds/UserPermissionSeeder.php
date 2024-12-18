@@ -4,7 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class UserPermission extends Seeder
+class UserPermissionSeeder extends Seeder
 {
     public function run()
     {
