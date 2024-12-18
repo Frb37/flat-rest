@@ -13,6 +13,7 @@ class User extends Entity
         'email'         => null,
         'password'      => null,
         'id_permission' => null,
+        'slug'          => null,
         'created_at'    => null,
         'updated_at'    => null,
         'deleted_at'    => null,

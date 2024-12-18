@@ -88,7 +88,7 @@
                     <div class="card col-md-7 p-4 mb-0">
                         <div class="card-body">
                             <h1>Connexion</h1>
-                            <p class="text-body-secondary">Connecter vous à votre compte</p>
+                            <p class="text-body-secondary">Connectez-vous à votre compte</p>
                             <form action="<?= base_url('/login'); ?>" method="POST">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">
