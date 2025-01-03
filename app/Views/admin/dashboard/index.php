@@ -5,18 +5,18 @@
                 <h4 class="card-title">Comptage des utilisateurs</h4>
             </div>
             <div class="card-body">
-                <!--<canvas id="userPieChart"></canvas>
+                <canvas id="userPieChart"></canvas>
                 <?php
-/*                $totalUsers = array_sum(array_column($infosUser, 'count')); */?>
-                Nombre total d'utilisateurs : --><?php /*= $totalUsers */?>
+                $totalUsers = array_sum(array_column($infosUser, 'count')); ?>
+                Nombre total d'utilisateurs : <?= $totalUsers; ?>
             </div>
         </div>
     </div>
 </div>
 
-<!--<script>
+<script>
     // Convertir le tableau PHP en un objet JavaScript
-    var data = <?php /*echo json_encode($infosUser); */?>;
+    var data = <?php echo json_encode($infosUser); ?>;
 
     // Extraire les labels (catégories/étiquettes) et les données (counts) pour les représenter graphiquement
     var labels = data.map(function(item) {
@@ -46,4 +46,4 @@
             }
         }
     });
-</script>-->
+</script>
