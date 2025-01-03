@@ -12,7 +12,7 @@ class User extends Entity
         'username'      => null,
         'email'         => null,
         'password'      => null,
-        'id_permission' => null,
+        'role_id'       => null,
         'slug'          => null,
         'created_at'    => null,
         'updated_at'    => null,
@@ -69,7 +69,7 @@ class User extends Entity
     public function getPermissionSlug(): string
     {
         $upm = Model('UserPermissionModel');
-        $permission = $upm->find($this->attributes['id_permission']);
+        $permission = $upm->find($this->attributes['id']);
 
         return $permission ? $permission['slug'] : '';  // Assurez-vous que 'slug' est dans le modèle PermissionModel
     }
