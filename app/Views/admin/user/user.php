@@ -12,8 +12,8 @@
                             <i class="fa-solid fa-xl fa-toggle-on text-success"></i>
                         </a>
                     <?php
-                    } else { ?>
-                        <a title="Activer un utilisateur"href="<?= base_url('admin/user/activate/') . $utilisateur['id']; ?>">
+                    } elseif (isset($utilisateur)) { ?>
+                        <a title="Activer un utilisateur" href="<?= base_url('admin/user/activate/') . $utilisateur['id']; ?>">
                             <i class="fa-solid fa-toggle-off fa-xl text-danger"></i>
                         </a>
                     <?php

@@ -68,7 +68,7 @@ class UserModel extends Model
     // Relations avec les permissions
     public function getPermissions()
     {
-        return $this->join('user_permission', 'user.id_permission = user_permission.id')
+        return $this->join('user_permission', 'user.role_id = user_permission.id')
             ->select('user.*, user_permission.name as permission_name')
             ->findAll();
     }
@@ -109,8 +109,8 @@ class UserModel extends Model
     public function countUserByPermission() {
         $builder = $this->db->table('user U');
         $builder->select('UP.name, count(U.id) as count');
-        $builder->join('user_permission UP', 'U.id_permission = UP.id');
-        $builder->groupBy('U.id_permission');
+        $builder->join('user_permission UP', 'U.role_id = UP.id');
+        $builder->groupBy('U.role_id');
         return $builder->get()->getResultArray();
     }
 
@@ -139,7 +139,7 @@ class UserModel extends Model
     public function getPaginatedUser($start, $length, $searchValue, $orderColumnName, $orderDirection)
     {
         $builder = $this->builder();
-        $builder->join('user_permission', 'user.id_permission = user_permission.id', 'left');
+        $builder->join('user_permission', 'user.role_id = user_permission.id', 'left');
         $builder->join('media', 'user.id = media.entity_id AND media.entity_type = "user"', 'left');
         $builder->select('user.*, user_permission.name as permission_name, media.file_path as avatar_url');
 
@@ -163,14 +163,14 @@ class UserModel extends Model
     public function getTotalUser()
     {
         $builder = $this->builder();
-        $builder->join('user_permission', 'user.id_permission = user_permission.id');
+        $builder->join('user_permission', 'user.role_id = user_permission.id');
         return $builder->countAllResults();
     }
 
     public function getFilteredUser($searchValue)
     {
         $builder = $this->builder();
-        $builder->join('user_permission', 'user.id_permission = user_permission.id', 'left');
+        $builder->join('user_permission', 'user.role_id = user_permission.id', 'left');
         $builder->join('media', 'user.id = media.entity_id AND media.entity_type = "user"', 'left');
         $builder->select('user.*, user_permission.name as permission_name, media.file_path as avatar_url');
 

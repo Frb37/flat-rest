@@ -11,9 +11,9 @@
                 <th>Avatar</th>
                 <th>Username</th>
                 <th>Mail</th>
-                <th>Rôle</th>
-                <th>Modifier</th>
-                <th>Actif</th>
+                <th>Role</th>
+                <th>Edit</th>
+                <th>Active</th>
             </tr>
             </thead>
             <tbody>
@@ -52,7 +52,7 @@
                             }
                         }
                     },
-                    {"data": "username"},
+                    {"data": "pseudo"},
                     {"data": "email"},
                     {"data": "permission_name"},
                     {
