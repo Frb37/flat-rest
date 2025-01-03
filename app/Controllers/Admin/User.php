@@ -81,7 +81,7 @@ class User extends BaseController
         }
 
         // Redirection vers la page des utilisateurs après le traitement
-        return $this->redirect("/admin/user");
+        return $this->redirect("/admin/user/");
     }
 
 
