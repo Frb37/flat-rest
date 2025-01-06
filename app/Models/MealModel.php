@@ -54,6 +54,13 @@ class MealModel extends Model
         return $this->find($id);
     }
 
+    public function getMealByIdWithCategs($id) {
+        $builder = $this->db->table('meal');
+        $builder->select('meal.name, meal.price, meal_category.name');
+        $builder->join('meal_category', 'meal_category.id = meal.category_id');
+        $builder->where('meal.id', $id);
+    }
+
     public function getMealByName($name)
     {
         return $this->where('name', $name)->first();
@@ -63,6 +70,4 @@ class MealModel extends Model
     {
         return $this->where('category', $category)->findAll();
     }
-
-
 }

@@ -14,8 +14,13 @@ class Meal extends BaseController
     {
         // When ID is defined, toggle Edit Mode
         if ($id) {
+            $meal = model('MealModel')->getMealByIdWithCategs($id);
+            return $this->view('admin/meal/index', ['meal' => $meal]);
+        } else {
             $this->addBreadcrumb('Meals', 'admin/meals');
-            $categ = model('MealCategoryModel')->getAllCategs();
+            $meals = model('MealModel')->getAllMeals();
+            $categs = model('MealCategoryModel')->getAllCategs();
+            return $this->view('/admin/meals/index', ['categs' => $categs, 'meals' => $meals]);
         }
     }
 }
