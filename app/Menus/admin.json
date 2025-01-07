@@ -8,14 +8,14 @@
   },
   "media": {
     "title": "Médias",
-    "url": "/media",
+    "url": "/admin/media",
     "perm": "none",
     "icon": "<i class=\"nav-icon fa-solid fa-photo-film\"></i>",
     "class": "main-menu-media"
   },
   "meals": {
     "title": "Plats",
-    "url": "/meals",
+    "url": "/admin/meals",
     "perm": "none",
     "icon": "<i class=\"nav-icon fa-solid fa-bowl-rice\"></i>",
     "class": "main-menu-meals"
@@ -29,14 +29,14 @@
     "subs": {
       "comments": {
         "title": "Commentaires",
-        "url": "/comments",
+        "url": "/admin/comments",
         "perm": "none",
         "icon": "<i class=\"nav-icon fa-solid fa-comment-dots\"></i>",
         "class": "main-menu-media"
       },
       "orders": {
         "title": "Commandes",
-        "url": "/orders",
+        "url": "/admin/orders",
         "perm": "none",
         "icon": "<i class=\"nav-icon fa-solid fa-truck-arrow-right\"></i>",
         "class": "main-menu-orders"
@@ -52,14 +52,14 @@
     "subs": {
       "providers": {
         "title": "Fournisseurs",
-        "url": "/providers",
+        "url": "/admin/providers",
         "perm": "none",
         "icon": "<i class=\"nav-icon fa-solid fa-warehouse\"></i>",
         "class": "main-menu-media"
       },
       "wares": {
         "title": "Stockage",
-        "url": "/stocks",
+        "url": "/admin/stocks",
         "perm": "none",
         "icon": "<i class=\"nav-icon fa-solid fa-boxes-stacked\"></i>",
         "class": "main-menu-wares"
@@ -68,7 +68,7 @@
   },
   "human_management": {
     "title": "Gestion utilisateur",
-    "url": "/user",
+    "url": "/",
     "perm": "none",
     "icon": "<i class=\"nav-icon fa-solid fa-people-roof\"></i>",
     "class": "main-menu-management",
