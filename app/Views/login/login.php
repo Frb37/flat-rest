@@ -116,12 +116,19 @@
                     <div class="card col-md-5 text-white bg-primary py-5">
                         <div class="card-body text-center">
                             <div>
-                                <h2>Rejoignez-nous !</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
-                                <a class="btn btn-lg btn-outline-light mt-3" href="<?= base_url('/login/register');
-                                ?>" >Créer un
-                                    compte</a>
+                                <h2>Pas encore inscrit ? C'est par ici !</h2>
+                                <div class="row">
+                                    <div class="col">
+                                    <img src="<?= base_url("/assets/img/projet.png"); ?>" width=200 height="auto">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                    <a class="btn btn-lg btn-outline-light mt-3" href="<?= base_url('/login/register');
+                                    ?>"> S'inscrire</a>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -129,5 +136,8 @@
             </div>
         </div>
     </div>
+</div>
+<div class="footer justify-content-center">
+    Entreprise J. SABBAH, SARL au capital de 666 666 € - 2025 - All rights reserved
 </div>
 </body>
