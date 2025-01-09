@@ -123,3 +123,8 @@ nb-configuration.xml
 
 /results/
 /phpunit*.xml
+
+#-------------------------
+# Miscellanea
+#-------------------------
+/public/assets/img/projet.png
