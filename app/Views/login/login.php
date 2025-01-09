@@ -138,6 +138,6 @@
     </div>
 </div>
 <div class="footer justify-content-center">
-    Entreprise J. SABBAH, SARL au capital de 666 666 € - 2025 - All rights reserved
+    Entreprise X, SARL au capital de Y € - 2025 - All rights reserved
 </div>
 </body>
