@@ -50,8 +50,8 @@ class Login extends BaseController
     public function postregister() {
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-        $username = $this->request->getPost('username');
-        $data = ['username' => $username, 'email' => $email, 'password' => $password, 'id_permission' => 3];
+        $pseudo = $this->request->getPost('pseudo');
+        $data = ['pseudo' => $pseudo, 'email' => $email, 'password' => $password, 'role_id' => 3];
         $um = Model('UserModel');
         if (!$um->createUser($data)) {
             $errors = $um->errors();
