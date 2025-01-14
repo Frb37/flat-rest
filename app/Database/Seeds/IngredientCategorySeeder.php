@@ -13,19 +13,19 @@ class IngredientCategorySeeder extends Seeder
                 'name' => 'spice'
             ],
             [
-                'name' => 'topping'
+                'name' => 'staple'
             ],
             [
-                'name' => 'appetizer'
+                'name' => 'herb'
             ],
             [
-                'name' => 'main'
+                'name' => 'sugar'
             ],
             [
                 'name' => 'snack'
             ],
             [
-                'name' => 'cold_drink'
+                'name' => 'flours'
             ]
         ];
         $this->db->table('ingredient_category')->insertBatch($data);

@@ -23,6 +23,30 @@ class RegionSeeder extends Seeder
             ],
             [
                 'name' => 'Unova'
+            ],
+            [
+                'name' => 'Kalos'
+            ],
+            [
+                'name' => 'Alola'
+            ],
+            [
+                'name' => 'Galar'
+            ],
+            [
+                'name' => 'Hisui'
+            ],
+            [
+                'name' => 'Paldea'
+            ],
+            [
+                'name' => 'Orre'
+            ],
+            [
+                'name' => 'Montara'
+            ],
+            [
+                'name' => 'Phaaze'
             ]
         ];
         $this->db->table('region')->insertBatch($data);
