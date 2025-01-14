@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MealCategoryModel extends Model
+class CityModel extends Model
 {
-    protected $table            = 'meal_category';
+    protected $table            = 'city';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id', 'name'];
+    protected $allowedFields    = ['id', 'name', 'zipcode', 'region_id'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -44,27 +44,17 @@ class MealCategoryModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getAllCategs()
-    {
-        return $this->findAll();
-    }
-
-    public function getCategNameById($id)
-    {
-        return $this->where('id', $id)->first();
-    }
-
-    public function createMealCategory($data)
+    public function createCity($data)
     {
         return $this->insert($data);
     }
 
-    public function updateMealCategory($data, $id)
+    public function updateCity($id, $data)
     {
         return $this->update($id, $data);
     }
 
-    public function deleteMealCategory($id)
+    public function deleteCity($id)
     {
         return $this->delete($id);
     }

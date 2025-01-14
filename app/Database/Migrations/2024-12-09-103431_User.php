@@ -18,10 +18,12 @@ class User extends Migration
             'first_name' => [
                 'type' => 'VARCHAR',
                 'constraint' => '100',
+                'null' => true,
             ],
             'last_name' => [
                 'type' => 'VARCHAR',
                 'constraint' => '100',
+                'null' => true,
             ],
             'pseudo' => [
                 'type' => 'VARCHAR',
@@ -34,6 +36,7 @@ class User extends Migration
             'phone' => [
                 'type' => 'VARCHAR',
                 'constraint' => '100',
+                'null' => true,
             ],
             'email' => [
                 'type' => 'VARCHAR',
@@ -41,6 +44,7 @@ class User extends Migration
             ],
             'delivery_address' => [
                 'type' => 'TEXT',
+                'null' => true,
             ],
             'delivery_city_id' => [
                 'type' => 'INT',
@@ -50,6 +54,7 @@ class User extends Migration
             ],
             'billing_address' => [
                 'type' => 'TEXT',
+                'null' => true,
             ],
             'billing_city_id' => [
                 'type' => 'INT',

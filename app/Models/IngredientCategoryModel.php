@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MealCategoryModel extends Model
+class IngredientCategoryModel extends Model
 {
-    protected $table            = 'meal_category';
+    protected $table            = 'ingredient_category';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -44,28 +44,23 @@ class MealCategoryModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getAllCategs()
-    {
-        return $this->findAll();
-    }
-
-    public function getCategNameById($id)
-    {
-        return $this->where('id', $id)->first();
-    }
-
-    public function createMealCategory($data)
+    public function createIngredientCategory($data)
     {
         return $this->insert($data);
     }
 
-    public function updateMealCategory($data, $id)
+    public function updateIngredientCategory($data)
     {
-        return $this->update($id, $data);
+        return $this->update($data);
     }
 
-    public function deleteMealCategory($id)
+    public function deleteIngredientCategory($data)
     {
-        return $this->delete($id);
+        return $this->delete($data);
+    }
+
+    public function getIngredientCategoryByID($id)
+    {
+        return $this->find($id);
     }
 }
