@@ -31,7 +31,7 @@ class City extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('region_id', 'region', 'id', 'CASCADE', 'RESTRICT');
+        $this->forge->addForeignKey('region_id', 'region', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('city');
     }
 

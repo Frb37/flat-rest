@@ -14,15 +14,28 @@ class CityModelTest extends CIUnitTestCase
     protected function setUp(): void
     { // Gets triggered before executing any test unit function
         parent::setUp();
+
+        // Disable foreign key checks
+        $this->db->query('SET FOREIGN_KEY_CHECKS=0');
+
         // Truncate the table before each test
         $this->db->table('city')->truncate();
+
+        // Re-enable foreign key checks
+        $this->db->query('SET FOREIGN_KEY_CHECKS=1');
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
+        // Disable foreign key checks
+        $this->db->query('SET FOREIGN_KEY_CHECKS=0');
+
         // Truncate the tables before each test
         $this->db->table('city')->truncate();
+
+        // Re-enable foreign key checks
+        $this->db->query('SET FOREIGN_KEY_CHECKS=1');
     }
 
     public function testCreateCity()
