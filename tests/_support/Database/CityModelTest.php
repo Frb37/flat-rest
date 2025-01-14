@@ -4,38 +4,38 @@ namespace Tests\Support\Database;
 
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
-use App\Models\RegionModel;
+use App\Models\CityModel;
 
-class RegionModelTest extends CIUnitTestCase
+class CityModelTest extends CIUnitTestCase
 {
-    use DatabaseTestTrait;
     protected $migrate = true;
-    protected $seed = 'App\Database\Seeds\RegionSeeder';
+    protected $seed = 'App\Database\Seeds\CityModelTestSeeder';
 
     protected function setUp(): void
     { // Gets triggered before executing any test unit function
         parent::setUp();
         // Truncate the table before each test
-        $this->db->table('region')->truncate();
+        $this->db->table('city')->truncate();
     }
 
     protected function tearDown(): void
     {
         parent::tearDown();
         // Truncate the tables before each test
-        $this->db->table('region')->truncate();
+        $this->db->table('city')->truncate();
     }
 
-    public function testCreateRegion()
+    public function testCreateCity()
     {
-        $model = new RegionModel();
+        $model = new CityModel();
         $data = [
-            'name' => 'Phaaze',
+            'name' => 'Pallet Town',
+            'zipcode' => '66666',
         ];
-        $result = $model->createRegion($data);
+        $result = $model->createCity($data);
         $this->assertTrue($result>0); // Checks if created user ID is greater than 0
 
         // Checks if user was successfully created in database
-        $this->seeInDatabase('region', ['name' => 'Phaaze']);
+        $this->seeInDatabase('city', ['name' => 'Pallet Town']);
     }
 }

@@ -4,22 +4,23 @@ namespace Tests\Support\Database;
 
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
-use App\Models\UserModel;
+use App\Models\IngredientCategoryModel;
 
-class UserModelTest extends CIUnitTestCase
+class IngredientCategoryModelTest extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     protected $migrate = true;
-    protected $seed = 'App\Database\Seeds\DatabaseSeeder';
+    protected $seed = 'App\Database\Seeds\IngredientCategorySeeder';
 
     protected function setUp(): void
     { // Gets triggered before executing any test unit function
         parent::setUp();
+
         // Disable foreign key checks
         $this->db->query('SET FOREIGN_KEY_CHECKS=0');
 
         // Truncate the table before each test
-        $this->db->table('user')->truncate();
+        $this->db->table('ingredient_category')->truncate();
 
         // Re-enable foreign key checks
         $this->db->query('SET FOREIGN_KEY_CHECKS=1');
@@ -30,28 +31,25 @@ class UserModelTest extends CIUnitTestCase
         parent::tearDown();
 
         // Disable foreign key checks
-        $this->db->query('SET_FOREIGN_KEY_CHECKS=0');
+        $this->db->query('SET FOREIGN_KEY_CHECKS=0');
 
         // Truncate the tables before each test
-        $this->db->table('user')->truncate();
+        $this->db->table('ingredient_category')->truncate();
 
         // Re-enable foreign key checks
-        $this->db->query('SET_FOREIGN_KEY_CHECKS=0');
+        $this->db->query('SET FOREIGN_KEY_CHECKS=1');
     }
 
-    public function testCreateUser()
+    public function testCreateIngredientCategory()
     {
-        $model = new UserModel();
+        $model = new IngredientCategoryModel();
         $data = [
-            'pseudo' => 'frb37',
-            'email' => 'florianrobert@faibidon.fr',
-            'password' => 'azerty123',
-            'role_id' => 3,
+            'name' => 'spice',
         ];
-        $result = $model->createUser($data);
+        $result = $model->createIngredientCategory($data);
         $this->assertTrue($result>0); // Checks if created user ID is greater than 0
 
         // Checks if user was successfully created in database
-        $this->seeInDatabase('user', ['email' => 'florianrobert@faibidon.com']);
+        $this->seeInDatabase('ingredient_category', ['name' => 'spice']);
     }
 }
