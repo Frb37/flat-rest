@@ -70,4 +70,19 @@ class MealModel extends Model
     {
         return $this->where('category', $category)->findAll();
     }
+
+    public function createMeal($data)
+    {
+        return $this->insert($data);
+    }
+
+    public function updateMeal($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function deleteMeal($id)
+    {
+        return $this->delete($data);
+    }
 }
