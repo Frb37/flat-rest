@@ -4,13 +4,14 @@ namespace Tests\Support\Database;
 
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
-use App\Models\CityModel;
+use App\Models\MealModel;
 
-class CityModelTest extends CIUnitTestCase
+class MealModelTest extends CIUnitTestCase
 {
     use DatabaseTestTrait;
+
     protected $migrate = true;
-    protected $seed = 'App\Database\Seeds\CitySeeder';
+    protected $seed = 'App\Database\Seeds\MealSeeder';
 
     protected function setUp(): void
     { // Gets triggered before executing any test unit function
@@ -20,7 +21,7 @@ class CityModelTest extends CIUnitTestCase
         $this->db->query('SET FOREIGN_KEY_CHECKS=0');
 
         // Truncate the table before each test
-        $this->db->table('city')->truncate();
+        $this->db->table('meal')->truncate();
 
         // Re-enable foreign key checks
         $this->db->query('SET FOREIGN_KEY_CHECKS=1');
@@ -33,23 +34,24 @@ class CityModelTest extends CIUnitTestCase
         $this->db->query('SET FOREIGN_KEY_CHECKS=0');
 
         // Truncate the tables before each test
-        $this->db->table('city')->truncate();
+        $this->db->table('meal')->truncate();
 
         // Re-enable foreign key checks
         $this->db->query('SET FOREIGN_KEY_CHECKS=1');
     }
 
-    public function testCreateCity()
+    public function testCreateMeal()
     {
-        $model = new CityModel();
+        $model = new MealModel();
         $data = [
-            'name' => 'Pallet Town',
-            'zipcode' => '66666',
+            'name' => 'Green Phazon Tea',
+            'category_id' => 6,
+            'price' => 210
         ];
-        $result = $model->createCity($data);
+        $result = $model->createMeal($data);
         $this->assertTrue($result>0); // Checks if created user ID is greater than 0
 
         // Checks if user was successfully created in database
-        $this->seeInDatabase('city', ['name' => 'Pallet Town']);
+        $this->seeInDatabase('meal', ['name' => 'Green Phazon Tea', 'category_id' => 6, 'price' => 210]);
     }
 }
