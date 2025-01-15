@@ -3,31 +3,31 @@ name: Release Workflow
 on:
   release:
     types: [created]
-    
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-      
+
     - name: Install Composer dependencies
       run: composer install --no-dev
-      
+
     - name: Create .env file
       run: |
-        echo "CI_ENVIRONMENT=development" >> .env
+        echo "CI_ENVIRONMENT=production" >> .env
         echo "ENV_TOKEN=${{ secrets.ENV_TOKEN }}" >> .env
         cat .env
-        
+
     - name: Modify App.php
       run: |
         sed -i "s|\$baseURL = '.*';|\$baseURL = '${{ secrets.BASE_URL }}';|g" app/Config/App.php
         cat app/Config/App.php
-  
+
     - name: Create .htaccess for root directory
       run: |
         echo '<IfModule mod_rewrite.c>' > .htaccess
@@ -39,7 +39,7 @@ jobs:
         echo ' Require all denied' >> .htaccess
         echo ' Satisfy All' >> .htaccess
         echo '</FilesMatch>' >> .htaccess
-  
+
     - name: Create .htaccess for public directory
       run: |
         echo '<IfModule mod_rewrite.c>' > public/.htaccess
@@ -89,7 +89,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ${{ secrets.URL_PREFIX }}/
-        
+
     - name: Run Migration via API
       run: |
         curl -X GET "${{ secrets.BASE_URL }}/api/migration" \
