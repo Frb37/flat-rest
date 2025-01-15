@@ -10,12 +10,12 @@ class AddAdminUser extends Migration
     {
         // Insérer un utilisateur administrateur par défaut
         $data = [
-            'username'     => 'admin',
-            'email'        => 'admin@admin.fr',
-            'password'     => password_hash('admin', PASSWORD_DEFAULT),
-            'id_permission' => 1, // Id de la permission Administrateur
-            'created_at'   => date('Y-m-d H:i:s'),
-            'updated_at'   => date('Y-m-d H:i:s'),
+            'pseudo'        => 'admin',
+            'email'         => 'admin@admin.fr',
+            'password'      => password_hash('admin', PASSWORD_DEFAULT),
+            'role_id'       => 1, // Id de la permission Administrateur
+            'created_at'    => date('Y-m-d H:i:s'),
+            'updated_at'    => date('Y-m-d H:i:s'),
         ];
 
         $this->db->table('user')->insert($data);
