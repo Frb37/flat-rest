@@ -29,7 +29,7 @@ class Database extends Config
         'hostname'     => 'localhost',
         'username'     => 'vipa0880_rflorian',
         'password'     => 'k;z+gS$qV2Bm',
-        'database'     => 'vipa0880_projet_rflorian',
+        'database'     => 'vipa0880_projet_florian',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'DBDebug'      => true,
