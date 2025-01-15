@@ -128,3 +128,4 @@ nb-configuration.xml
 # Miscellanea
 #-------------------------
 /public/assets/img/projet.png
+/.env
