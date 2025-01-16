@@ -10,10 +10,10 @@ class AddAdminUser extends Migration
     {
         // Insérer un utilisateur administrateur par défaut
         $data = [
-            'pseudo'        => 'admin',
+            'username'      => 'admin',
             'email'         => 'admin@admin.fr',
             'password'      => password_hash('admin', PASSWORD_DEFAULT),
-            'role_id'       => 1, // Id de la permission Administrateur
+            'permission_id' => 1, // Id de la permission Administrateur
             'created_at'    => date('Y-m-d H:i:s'),
             'updated_at'    => date('Y-m-d H:i:s'),
         ];
@@ -24,7 +24,7 @@ class AddAdminUser extends Migration
     public function down()
     {
         $this->db->table('user')
-            ->where('pseudo', 'admin')
+            ->where('username', 'admin')
             ->delete();
     }
 }
