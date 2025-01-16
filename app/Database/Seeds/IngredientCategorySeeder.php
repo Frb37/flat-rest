@@ -10,10 +10,10 @@ class IngredientCategorySeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'spice'
+                'name' => 'staple'
             ],
             [
-                'name' => 'staple'
+                'name' => 'spice'
             ],
             [
                 'name' => 'herb'
@@ -25,7 +25,7 @@ class IngredientCategorySeeder extends Seeder
                 'name' => 'snack'
             ],
             [
-                'name' => 'flours'
+                'name' => 'flour'
             ]
         ];
         $this->db->table('ingredient_category')->insertBatch($data);

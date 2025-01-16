@@ -9,13 +9,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call('UserSeeder');
-        $this->call('UserPermissionSeeder');
+        $this->call('RegionSeeder');
         $this->call('CitySeeder');
+        $this->call('ProviderSeeder');
         $this->call('IngredientCategorySeeder');
-        $this->call('IngredientSeeder');
         $this->call('MealCategorySeeder');
         $this->call('MealSeeder');
+        $this->call('IngredientSeeder');
         $this->call('MealIngredientSeeder');
-        $this->call('ProviderSeeder');
     }
 }
