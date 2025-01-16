@@ -24,18 +24,26 @@ class UserPermission extends Migration
             'slug' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'unique'     => true,
                 'after'      => 'name',
             ],
         ]);
 
         $this->forge->addPrimaryKey('id');
         $this->forge->createTable('user_permission');
+
+        // Create default user permissions
+        $data = [
+            ['name' => 'Administrateur'],
+            ['name' => 'Collaborateur'],
+            ['name' => 'Utilisateur'],
+        ];
+        $this->db->table('user_permission')->insertBatch($data);
         $this->updateSlugs('user_permission');
     }
 
     public function down()
     {
+        $this->db->query('ALTER TABLE user DROP FOREIGN KEY fk_id_permission');
         $this->forge->dropTable('user_permission');
     }
 

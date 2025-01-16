@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class City extends Migration
+class Provider extends Migration
 {
     public function up()
     {
@@ -19,24 +19,24 @@ class City extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'zipcode' => [
-                'type' => 'VARCHAR',
-                'constraint' => 10,
+            'address' => [
+                'type' => 'TEXT',
             ],
-            'region_id' => [
+            'city_id' => [
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
-            ],
+            ]
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->addForeignKey('region_id', 'region', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('city');
+        $this->forge->addForeignKey('city_id', 'city', 'id', 'CASCADE', 'CASCADE');
+
+        $this->forge->createTable('provider');
     }
 
     public function down()
     {
-        $this->forge->dropTable('city');
+        $this->forge->dropTable('provider');
     }
 }

@@ -45,6 +45,7 @@ class CityModelTest extends CIUnitTestCase
         $data = [
             'name' => 'Pallet Town',
             'zipcode' => '66666',
+            'region_id' => 1,
         ];
         $result = $model->createCity($data);
         $this->assertTrue($result>0); // Checks if created user ID is greater than 0
