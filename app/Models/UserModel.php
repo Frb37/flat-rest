@@ -10,7 +10,7 @@ class UserModel extends Model
     protected $primaryKey = 'id';
 
     // Champs permis pour les opérations d'insertion et de mise à jour
-    protected $allowedFields = ['first_name', 'last_name', 'pseudo', 'password', 'email', 'role_id', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields = ['first_name', 'last_name', 'username', 'password', 'email', 'permission_id', 'created_at', 'updated_at', 'deleted_at'];
 
     // Activer le soft delete
     protected $useSoftDeletes = true;
@@ -23,14 +23,14 @@ class UserModel extends Model
 
     // Validation
     protected $validationRules = [
-        'pseudo' => 'required|is_unique[user.pseudo,id,{id}]|min_length[3]|max_length[100]',
+        'username' => 'required|is_unique[user.pseudo,id,{id}]|min_length[3]|max_length[100]',
         'email'    => 'required|valid_email|is_unique[user.email,id,{id}]',
         'password' => 'required|min_length[8]',
-        'role_id' => 'required|is_natural_no_zero',
+        'permission_id' => 'required|is_natural_no_zero',
     ];
 
     protected $validationMessages = [
-        'pseudo' => [
+        'username' => [
             'required'   => 'Le nom d\'utilisateur est requis.',
             'min_length' => 'Le nom d\'utilisateur doit comporter au moins 3 caractères.',
             'max_length' => 'Le nom d\'utilisateur ne doit pas dépasser 100 caractères.',
@@ -45,7 +45,7 @@ class UserModel extends Model
             'required'   => 'Le mot de passe est requis.',
             'min_length' => 'Le mot de passe doit comporter au moins 8 caractères.',
         ],
-        'role_id' => [
+        'permission_id' => [
             'required'          => 'La permission est requise.',
             'is_natural_no_zero' => 'La permission doit être un entier positif.',
         ],
@@ -68,7 +68,7 @@ class UserModel extends Model
     // Relations avec les permissions
     public function getPermissions()
     {
-        return $this->join('user_permission', 'user.role_id = user_permission.id')
+        return $this->join('user_permission', 'user.permission_id = user_permission.id')
             ->select('user.*, user_permission.name as permission_name')
             ->findAll();
     }
@@ -109,8 +109,8 @@ class UserModel extends Model
     public function countUserByPermission() {
         $builder = $this->db->table('user U');
         $builder->select('UP.name, count(U.id) as count');
-        $builder->join('user_permission UP', 'U.role_id = UP.id');
-        $builder->groupBy('U.role_id');
+        $builder->join('user_permission UP', 'U.permission_id = UP.id');
+        $builder->groupBy('U.permission_id');
         return $builder->get()->getResultArray();
     }
 
@@ -139,7 +139,7 @@ class UserModel extends Model
     public function getPaginatedUser($start, $length, $searchValue, $orderColumnName, $orderDirection)
     {
         $builder = $this->builder();
-        $builder->join('user_permission', 'user.role_id = user_permission.id', 'left');
+        $builder->join('user_permission', 'user.permission_id = user_permission.id', 'left');
         $builder->join('media', 'user.id = media.entity_id AND media.entity_type = "user"', 'left');
         $builder->select('user.*, user_permission.name as permission_name, media.file_path as avatar_url');
 
@@ -163,14 +163,14 @@ class UserModel extends Model
     public function getTotalUser()
     {
         $builder = $this->builder();
-        $builder->join('user_permission', 'user.role_id = user_permission.id');
+        $builder->join('user_permission', 'user.permission_id = user_permission.id');
         return $builder->countAllResults();
     }
 
     public function getFilteredUser($searchValue)
     {
         $builder = $this->builder();
-        $builder->join('user_permission', 'user.role_id = user_permission.id', 'left');
+        $builder->join('user_permission', 'user.permission_id = user_permission.id', 'left');
         $builder->join('media', 'user.id = media.entity_id AND media.entity_type = "user"', 'left');
         $builder->select('user.*, user_permission.name as permission_name, media.file_path as avatar_url');
 
