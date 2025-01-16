@@ -52,7 +52,7 @@
                             }
                         }
                     },
-                    {"data": "pseudo"},
+                    {"data": "username"},
                     {"data": "email"},
                     {"data": "permission_name"},
                     {
