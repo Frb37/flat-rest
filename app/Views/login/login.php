@@ -104,10 +104,29 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <button class="btn btn-primary px-4" type="submit">Se connecter</button>
+                                        <style>
+                                            .btn-login {
+                                                background-color: midnightblue;
+                                                color: white;
+                                                border: none;
+                                                padding: 10px 20px;
+                                                border-radius: 5px;
+                                                cursor: pointer;
+                                            }
+
+                                            .btn-password-forgotten {
+                                                background-color: deepskyblue;
+                                                border: none;
+                                                padding: 10px 20px
+                                                border-radius: 5px;
+                                                cursor: pointer;
+                                            }
+                                        </style>
+                                        <button class="btn-login" type="submit">Se connecter</button>
+                                        </div>
+                                    <div class="col-6">
+                                        <button class="btn-password-forgotten" type="button">Mot de passe oublié ?</button>
                                     </div>
-                                    <div class="col-6 text-end">
-                                        <button class="btn btn-link px-0" type="button">Mot de passe oublié ?</button>
                                     </div>
                                 </div>
                             </form>
