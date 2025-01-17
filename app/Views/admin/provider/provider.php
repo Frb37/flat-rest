@@ -6,11 +6,11 @@
 
 <div class="row">
     <div class="col">
-        <form action="<?= isset($order) ? base_url("/admin/order/update") : base_url("/admin/order/create") ?>" method="POST" enctype="multipart/form-data">
+        <form action="<?= isset($provider) ? base_url("/admin/provider/update") : base_url("/admin/provider/create") ?>" method="POST" enctype="multipart/form-data">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title">
-                        <?= (isset($order) && $order['deleted_at'] == null) ? "Edit order #" . $order['id'] : "Create an order" ?>
+                        <?= isset($provider) ? "Edit " . $provider['name'] : "Create a provider" ?>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -41,18 +41,18 @@
                                 <label for="password" class="form-label">City</label>
                                 <input type="password" class="form-control" id="city" placeholder="city" value="" name="password">
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="card-footer text-end">
-                        <?php if (isset($provider)): ?>
-                            <input type="hidden" name="id" value="<?= $provider['id']; ?>">
-                        <?php endif; ?>
-                        <button type="submit" class="btn btn-primary">
-                            <?= isset($provider) ? "Sauvegarder" : "Enregistrer" ?>
-                        </button>
                     </div>
                 </div>
+
+                <div class="card-footer text-end">
+                    <?php if (isset($provider)): ?>
+                        <input type="hidden" name="id" value="<?= $provider['id']; ?>">
+                    <?php endif; ?>
+                    <button type="submit" class="btn btn-primary">
+                        <?= isset($provider) ? "Sauvegarder" : "Enregistrer" ?>
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
 </div>

@@ -15,7 +15,7 @@
   },
   "meals": {
     "title": "Plats",
-    "url": "/admin/meals",
+    "url": "/admin/meal",
     "perm": "none",
     "icon": "<i class=\"nav-icon fa-solid fa-bowl-rice\"></i>",
     "class": "main-menu-meals"
@@ -29,14 +29,14 @@
     "subs": {
       "comments": {
         "title": "Commentaires",
-        "url": "/admin/comments",
+        "url": "/admin/comment",
         "perm": "none",
         "icon": "<i class=\"nav-icon fa-solid fa-comment-dots\"></i>",
         "class": "main-menu-media"
       },
       "orders": {
         "title": "Commandes",
-        "url": "/admin/orders",
+        "url": "/admin/order",
         "perm": "none",
         "icon": "<i class=\"nav-icon fa-solid fa-truck-arrow-right\"></i>",
         "class": "main-menu-orders"
@@ -52,14 +52,14 @@
     "subs": {
       "providers": {
         "title": "Fournisseurs",
-        "url": "/admin/providers",
+        "url": "/admin/provider",
         "perm": "none",
         "icon": "<i class=\"nav-icon fa-solid fa-warehouse\"></i>",
         "class": "main-menu-media"
       },
       "wares": {
         "title": "Stockage",
-        "url": "/admin/stocks",
+        "url": "/admin/stock",
         "perm": "none",
         "icon": "<i class=\"nav-icon fa-solid fa-boxes-stacked\"></i>",
         "class": "main-menu-wares"

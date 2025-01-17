@@ -12,7 +12,7 @@ class Provider extends BaseController
         // When ID is defined, toggle Edit Mode
         if ($id) {
             $provider = model('ProviderModel')->getProviderById($id);
-            return $this->view('admin/provider/index.php', ['provider' => $provider], true);
+            return $this->view('admin/provider/provider.php', ['provider' => $provider], true);
         } else {
             $this->addBreadcrumb('Provider', 'admin/providers');
             $providers = model('ProviderModel')->getAllProviders();
