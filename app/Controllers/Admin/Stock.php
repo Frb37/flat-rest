@@ -9,6 +9,15 @@ class Stock extends BaseController
 {
     public function getindex()
     {
-        echo "Un gamin de quinze ans, c'est pas un homme";
+        // When ID is defined, toggle Edit Mode
+        if ($id) {
+
+            $orders = model('OrderModel')->getAllOrdersByEmployeeAndCustomerNames();
+            return $this->view('/admin/order/index.php', ['orders' => $orders], true);
+        } else {
+            $this->addBreadcrumb('Stocks', 'admin/stocks');
+            $order = model('App\Models\StockMoveModel')->getAllStockMoves();
+            return $this->view('admin/stock/order.php', ['order' => $order], true);
+        }
     }
 }

@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class StockModel extends Model
+class StockMoveModel extends Model
 {
-    protected $table            = 'stocks';
+    protected $table            = 'stock_move';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id', 'move', 'stock', 'type', 'entity_id', 'entity_type'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -43,4 +43,9 @@ class StockModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getAllStockMoves()
+    {
+        return $this->findAll();
+    }
 }

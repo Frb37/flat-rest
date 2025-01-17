@@ -40,6 +40,12 @@ class StockMove extends Migration
                 'constraint' => ['provider', 'ingredient'],
                 'default' => 'ingredient',
             ],
+            'created_at' => [
+                'type' => 'DATETIME',
+            ],
+            'updated_at' => [
+                'type' => 'DATETIME',
+            ]
         ]);
 
         $this->forge->addPrimaryKey('id');
