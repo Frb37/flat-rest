@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h4>List of providers</h4>
-        <a href="<?= base_url('/admin/provider/new'); ?>"><i class="fa-solid fa-user-plus"></i></a>
+        <h4>List of orders</h4>
+        <a href="<?= base_url('/admin/order/new'); ?>"><i class="fa-solid fa-user-plus"></i></a>
     </div>
     <div class="card-body">
         <table id="tableOrders" class="table table-hover">

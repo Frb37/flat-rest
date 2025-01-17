@@ -65,6 +65,13 @@ class OrderModel extends Model
         return $this->where('employee_id', $employee_id)->findAll();
     }
 
+    public function getAllOrdersByEmployeeAndCustomerNames()
+    {
+        $builder = $this->db->table('order o');
+        $builder->select('o.id, o.customer_id, o.employee_id, o.meal_id, o.quantity, o.created_at, o.updated_at, o.deleted_at');
+        $builder->join('user u', 'u.id = o.employee_id');
+    }
+
     public function getOrdersByEmployeeAndCustomerNames($employee_first, $employee_last)
     {
         $builder = $this->db->table('order o');
