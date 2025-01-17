@@ -49,6 +49,13 @@ class MealModel extends Model
         return $this->findAll();
     }
 
+    public function getAllMealsWithCategNames()
+    {
+        $builder = $this->db()->table('meal');
+        $builder->select('meal.id, meal.name, meal_category.name, meal.price');
+        $builder->join('meal_category', 'meal_category.id = meal.category');
+    }
+
     public function getMealById($id)
     {
         return $this->find($id);
