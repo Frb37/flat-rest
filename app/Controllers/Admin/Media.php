@@ -12,7 +12,7 @@ class Media extends BaseController
     protected $requiredPermissions = ['administrateur'];
     public function getindex()
     {
-        return $this->view('admin/media', ['medias' => model('MediaModel')->getAllMedias(12)], true);
+        return $this->view('admin/media/media', ['medias' => model('MediaModel')->getAllMedias(12)], true);
     }
 
     public function getdelete($id = null) {
