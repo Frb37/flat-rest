@@ -5,7 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class Providers extends BaseController
+class Provider extends BaseController
 {
     public function getindex($id = null)
     {
@@ -14,7 +14,7 @@ class Providers extends BaseController
             $provider = model('ProviderModel')->getProviderById($id);
             return $this->view('admin/provider/index.php', ['provider' => $provider], true);
         } else {
-            $this->addBreadcrumb('Providers', 'admin/providers');
+            $this->addBreadcrumb('Provider', 'admin/providers');
             $providers = model('ProviderModel')->getAllProviders();
             return $this->view('/admin/provider/index.php', ['providers' => $providers], true);
         }
