@@ -4,7 +4,7 @@
         <a href="<?= base_url('/admin/meal/new'); ?>"><i class="fa-solid fa-user-plus"></i></a>
     </div>
     <div class="card-body">
-        <table id="tableUsers" class="table table-hover">
+        <table id="TableMeal" class="table table-hover">
             <thead>
             <tr>
                 <th>ID</th>
@@ -27,7 +27,7 @@
 <script>
     $(document).ready(function () {
         var baseUrl = "<?= base_url(); ?>";
-        var dataTable = $('#tableUsers').DataTable({
+        var dataTable = $('#TableMeal').DataTable({
             "responsive": true,
             "processing": true,
             "serverSide": true,

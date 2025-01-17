@@ -11,7 +11,7 @@
                 <th>Avatar</th>
                 <th>Username</th>
                 <th>Mail</th>
-                <th>Role</th>
+                <th>Perm</th>
                 <th>Edit</th>
                 <th>Active</th>
             </tr>
