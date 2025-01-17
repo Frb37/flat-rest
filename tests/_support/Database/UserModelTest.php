@@ -4,12 +4,12 @@ namespace Tests\Support\Database;
 
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
-use App\Models\UserPermissionModel;
-class UserPermissionModelTest extends CIUnitTestCase
+use App\Models\UserModel;
+class UserModelTest extends CIUnitTestCase
 {
     use DatabaseTestTrait;
     protected $migrate = true;
-    protected $seed = 'App\Database\Seeds\UserPermissionSeeder';
+    protected $seed = 'App\Database\Seeds\UserSeeder';
 
     protected function setUp(): void
     { // Gets triggered before executing any test unit function
@@ -19,7 +19,7 @@ class UserPermissionModelTest extends CIUnitTestCase
         $this->db->query('SET FOREIGN_KEY_CHECKS=0');
 
         // Truncate the table before each test
-        $this->db->table('user_permission')->truncate();
+        $this->db->table('user')->truncate();
 
         // Re-enable foreign key checks
         $this->db->query('SET FOREIGN_KEY_CHECKS=1');
@@ -32,22 +32,27 @@ class UserPermissionModelTest extends CIUnitTestCase
 
         parent::tearDown();
         // Truncate the tables before each test
-        $this->db->table('user_permission')->truncate();
+        $this->db->table('user')->truncate();
 
         // Re-enable foreign key checks
         $this->db->query('SET FOREIGN_KEY_CHECKS=1');
     }
 
-    public function testCreateUserPermission()
+    public function testCreateUser()
     {
-        $model = new UserPermissionModel();
+        $model = new UserModel();
         $data = [
-            'name' => 'souverain',
+            'username' => 'foo',
+            'email' => 'foo@bar.com',
+            'password' => password_hash('password123', PASSWORD_DEFAULT),
+            'first_name' => 'foo',
+            'last_name' => 'bar',
+            'permission_id' => 3,
         ];
-        $result = $model->createPermission($data);
+        $result = $model->createUser($data);
         $this->assertTrue($result>0); // Checks if created user ID is greater than 0
 
         // Checks if user was successfully created in database
-        $this->seeInDatabase('user_permission', ['name' => 'souverain']);
+        $this->seeInDatabase('user', ['username' => 'foo']);
     }
 }
