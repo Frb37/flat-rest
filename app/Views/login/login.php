@@ -115,22 +115,14 @@
                     </div>
                     <div class="card col-md-5 text-white bg-primary py-5">
                         <div class="card-body text-center">
-                            <div>
                                 <h2>Pas encore inscrit ? C'est par ici !</h2>
-                                <div class="row">
-                                    <div class="col">
-                                    <img src="<?= base_url("/assets/img/projet.png"); ?>" width=200 height="auto">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                    <a class="btn btn-lg btn-outline-light mt-3" href="<?= base_url('/login/register');
-                                    ?>"> S'inscrire</a>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
                         </div>
+                        <div class="card-footer text-center">
+                            <a class="btn btn-lg btn-outline-light mt-3" href="<?= base_url('/login/register');
+                            ?>"> S'inscrire</a>
+                        </div>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>
